@@ -28,6 +28,8 @@
 
 [![License](https://img.shields.io/badge/License-BSD3-lightgrey.svg)](https://opensource.org/licenses/BSD-3-Clause)
 
+[This branch contains source to build r21.05 triton pytorch backend with 21.06 pytorch containers]
+
 # PyTorch (LibTorch) Backend
 
 The Triton backend for [PyTorch](https://github.com/pytorch/pytorch). 
@@ -62,9 +64,11 @@ container from NGC:
 ```
 $ mkdir build
 $ cd build
-$ cmake -DCMAKE_INSTALL_PREFIX:PATH=`pwd`/install -DTRITON_PYTORCH_DOCKER_IMAGE="nvcr.io/nvidia/pytorch:21.02-py3" ..
+$ cmake -DCMAKE_INSTALL_PREFIX:PATH=`pwd`/install -DTRITON_PYTORCH_DOCKER_IMAGE="nvcr.io/nvidia/pytorch:21.06-py3" ..
 $ make install
 ```
+
+*Note nvcr.io/nvidia/pytorch:21.06-py3 is being used*
 
 The following required Triton repositories will be pulled and used in
 the build. By default the "main" branch/tag will be used for each repo

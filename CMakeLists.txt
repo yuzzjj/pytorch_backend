@@ -47,9 +47,9 @@ set(TRITON_PYTORCH_DOCKER_IMAGE "" CACHE STRING "Docker image containing the PyT
 set(TRITON_PYTORCH_INCLUDE_PATHS "" CACHE PATH "Paths to Torch includes")
 set(TRITON_PYTORCH_LIB_PATHS "" CACHE PATH "Paths to Torch libraries")
 
-set(TRITON_BACKEND_REPO_TAG "main" CACHE STRING "Tag for triton-inference-server/backend repo")
-set(TRITON_CORE_REPO_TAG "main" CACHE STRING "Tag for triton-inference-server/core repo")
-set(TRITON_COMMON_REPO_TAG "main" CACHE STRING "Tag for triton-inference-server/common repo")
+set(TRITON_BACKEND_REPO_TAG "r21.05" CACHE STRING "Tag for triton-inference-server/backend repo")
+set(TRITON_CORE_REPO_TAG "r21.05" CACHE STRING "Tag for triton-inference-server/core repo")
+set(TRITON_COMMON_REPO_TAG "r21.05" CACHE STRING "Tag for triton-inference-server/common repo")
 
 if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE Release)
@@ -119,7 +119,7 @@ if (${TRITON_PYTORCH_DOCKER_BUILD})
       "libmkl_avx2.so"
       "libmkl_avx512.so"
       "libmkl_sequential.so"
-      "libiomp5.so"
+      "libomp.so"
       "libc10.so"
       "libc10_cuda.so"
       "libtorch.so"
@@ -157,7 +157,7 @@ if (${TRITON_PYTORCH_DOCKER_BUILD})
     COMMAND docker cp pytorch_backend_ptlib:/opt/conda/lib/libmkl_avx2.so libmkl_avx2.so
     COMMAND docker cp pytorch_backend_ptlib:/opt/conda/lib/libmkl_avx512.so libmkl_avx512.so
     COMMAND docker cp pytorch_backend_ptlib:/opt/conda/lib/libmkl_sequential.so libmkl_sequential.so
-    COMMAND docker cp pytorch_backend_ptlib:/opt/conda/lib/libiomp5.so libiomp5.so
+    COMMAND docker cp pytorch_backend_ptlib:/opt/conda/lib/libomp.so libomp.so
     COMMAND docker cp pytorch_backend_ptlib:/opt/conda/lib/python3.8/site-packages/torch/lib/libc10.so libc10.so
     COMMAND docker cp pytorch_backend_ptlib:/opt/conda/lib/python3.8/site-packages/torch/lib/libc10_cuda.so libc10_cuda.so
     COMMAND docker cp pytorch_backend_ptlib:/opt/conda/lib/python3.8/site-packages/torch/lib/libtorch.so libtorch.so
