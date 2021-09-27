@@ -286,9 +286,8 @@ target_link_libraries(
     triton-core-serverstub # from repo-core
     triton-backend-utils   # from repo-backend
     ${TRITON_PYTORCH_LDFLAGS}
-    ${ptlib}
-    #-ltorch
-    #-ltorchvision
+    ${CMAKE_CURRENT_BINARY_DIR}/torch
+    ${CMAKE_CURRENT_BINARY_DIR}/torchvision
 )
 
 if(${TRITON_ENABLE_GPU})
